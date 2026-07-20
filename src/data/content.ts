@@ -128,6 +128,7 @@ export const content: Record<Lang, Dictionary> = {
         status: "developing",
         accent: "#a855f7",
         emoji: "🗡️",
+        logo: "/logos/vessel.svg",
       },
       {
         slug: "kolayfresh",
@@ -165,6 +166,7 @@ export const content: Record<Lang, Dictionary> = {
         repo: "https://github.com/melih-krbck/CRM-Project",
         accent: "#6366f1",
         emoji: "💼",
+        logo: "/logos/crm.svg",
       },
       {
         slug: "atolye-yonetim",
@@ -245,6 +247,7 @@ export const content: Record<Lang, Dictionary> = {
         status: "developing",
         accent: "#a855f7",
         emoji: "🗡️",
+        logo: "/logos/vessel.svg",
       },
       {
         slug: "kolayfresh",
@@ -282,6 +285,7 @@ export const content: Record<Lang, Dictionary> = {
         repo: "https://github.com/melih-krbck/CRM-Project",
         accent: "#6366f1",
         emoji: "💼",
+        logo: "/logos/crm.svg",
       },
       {
         slug: "atolye-yonetim",
