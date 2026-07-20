@@ -1,12 +1,15 @@
-import type { Project } from "@/data/content";
+import type { Project, StatusKey } from "@/data/content";
+import { useLanguage } from "@/i18n/language";
 
-const statusStyles: Record<Project["status"], string> = {
-  Geliştiriliyor: "text-violet border-violet/40 bg-violet/10",
-  Canlı: "text-cyan border-cyan/40 bg-cyan/10",
-  Tamamlandı: "text-pink border-pink/40 bg-pink/10",
+const statusStyles: Record<StatusKey, string> = {
+  developing: "text-violet border-violet/40 bg-violet/10",
+  live: "text-cyan border-cyan/40 bg-cyan/10",
+  completed: "text-pink border-pink/40 bg-pink/10",
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage();
+
   return (
     <article
       className="card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl glass p-6"
@@ -43,17 +46,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         <span
           className={`rounded-full border px-2.5 py-1 text-xs font-medium ${statusStyles[project.status]}`}
         >
-          {project.status}
+          {t.statusLabels[project.status]}
         </span>
       </div>
 
       <h3 className="text-xl font-bold tracking-tight text-text">
         {project.title}
       </h3>
-      <p
-        className="mt-1 text-sm font-medium"
-        style={{ color: project.accent }}
-      >
+      <p className="mt-1 text-sm font-medium" style={{ color: project.accent }}>
         {project.subtitle}
       </p>
 
@@ -81,7 +81,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-text transition-colors hover:text-violet"
             >
-              Canlı Demo
+              {t.liveLabel}
               <span aria-hidden>↗</span>
             </a>
           )}
@@ -92,7 +92,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-text"
             >
-              Kod
+              {t.codeLabel}
               <span aria-hidden>↗</span>
             </a>
           )}

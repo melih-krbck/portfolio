@@ -1,16 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const links = [
-  { href: "#projeler", label: "Projeler" },
-  { href: "#yetenekler", label: "Yetenekler" },
-  { href: "#hakkimda", label: "Hakkımda" },
-  { href: "#iletisim", label: "İletişim" },
-];
+import { useLanguage } from "@/i18n/language";
+import type { Lang } from "@/data/content";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -18,6 +14,15 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = [
+    { href: "#projeler", label: t.nav.projects },
+    { href: "#yetenekler", label: t.nav.skills },
+    { href: "#hakkimda", label: t.nav.about },
+    { href: "#iletisim", label: t.nav.contact },
+  ];
+
+  const langs: Lang[] = ["tr", "en"];
 
   return (
     <header
@@ -47,12 +52,31 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <a
-          href="#iletisim"
-          className="rounded-full bg-violet/90 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-violet"
-        >
-          İletişim
-        </a>
+        <div className="flex items-center gap-3">
+          {/* Dil değiştirici */}
+          <div className="flex items-center rounded-full border border-border bg-white/[0.03] p-0.5 text-xs font-medium">
+            {langs.map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                aria-pressed={lang === l}
+                className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
+                  lang === l
+                    ? "bg-violet text-white"
+                    : "text-muted hover:text-text"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+          <a
+            href="#iletisim"
+            className="hidden rounded-full bg-violet/90 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-violet sm:inline-block"
+          >
+            {t.nav.contact}
+          </a>
+        </div>
       </nav>
     </header>
   );

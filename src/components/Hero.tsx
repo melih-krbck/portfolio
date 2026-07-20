@@ -1,7 +1,12 @@
+"use client";
+
 import { profile } from "@/data/content";
+import { useLanguage } from "@/i18n/language";
 import SocialButton from "./SocialButton";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="top"
@@ -10,15 +15,17 @@ export default function Hero() {
       <div className="mx-auto max-w-3xl text-center">
         <div className="animate-float mb-8 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs text-muted">
           <span className="orb inline-block h-2 w-2 rounded-full bg-violet" />
-          Selçuk Üniversitesi · Bilgisayar Mühendisliği
+          {t.hero.badge}
         </div>
 
         <h1 className="text-balance text-5xl font-bold leading-tight tracking-tight sm:text-7xl">
-          Merhaba, ben <span className="gradient-text neon-text">Melih</span>.
+          {t.hero.greetingPre}
+          <span className="gradient-text neon-text">{t.hero.greetingName}</span>
+          {t.hero.greetingPost}
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted">
-          {profile.tagline}
+          {t.tagline}
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -26,7 +33,7 @@ export default function Hero() {
             href="#projeler"
             className="group rounded-full bg-violet px-6 py-3 font-medium text-white glow-violet transition-transform hover:scale-105"
           >
-            Projelerimi Gör
+            {t.hero.ctaProjects}
             <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
               →
             </span>
@@ -37,7 +44,7 @@ export default function Hero() {
 
         <div className="mt-14 flex items-center justify-center gap-2 text-xs text-muted/70">
           <span className="h-px w-8 bg-border" />
-          <span className="font-mono">Godot · Next.js · Python · React</span>
+          <span className="font-mono">{t.hero.tech}</span>
           <span className="h-px w-8 bg-border" />
         </div>
       </div>
