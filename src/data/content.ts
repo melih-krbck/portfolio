@@ -131,6 +131,19 @@ export const content: Record<Lang, Dictionary> = {
         logo: "/logos/vessel.svg",
       },
       {
+        slug: "orka-motor",
+        title: "ORKA Motor Yedek Parça",
+        subtitle: "Motosiklet yedek parça sitesi — canlıda, gerçek alan adıyla",
+        description:
+          "Bir aile işletmesi için sıfırdan kurduğum çıkma/sıfır motosiklet yedek parça sitesi (orkamotor.com). Marka → model → yıl uyumluluğu, yazım hatalarını, eş anlamlıları ve bitişik yazımı anlayan Türkçe arama (PostgreSQL), sepetten WhatsApp ile sipariş ve ilan/katalog/marka yönetimli tam bir admin paneli. Next.js 16 önbellekleme ile mobil Lighthouse 90+, JSON-LD ve site haritası sayesinde Google'da dizinli; Supabase RLS ile güvenli.",
+        tags: ["Next.js 16", "Supabase", "PostgreSQL", "TypeScript", "Tailwind", "SEO"],
+        status: "live",
+        live: "https://www.orkamotor.com",
+        accent: "#e81b25",
+        emoji: "🏍️",
+        logo: "/logos/orka.png",
+      },
+      {
         slug: "kolayfresh",
         title: "KolayFresh",
         subtitle: "Gerçek bir manav için e-ticaret sitesi",
@@ -248,6 +261,19 @@ export const content: Record<Lang, Dictionary> = {
         accent: "#a855f7",
         emoji: "🗡️",
         logo: "/logos/vessel.svg",
+      },
+      {
+        slug: "orka-motor",
+        title: "ORKA Motor Spare Parts",
+        subtitle: "Motorcycle spare parts store — live on a real domain",
+        description:
+          "A used & new motorcycle spare parts site I built from scratch for a family business (orkamotor.com). Brand → model → year fitment, a Turkish-aware search that handles typos, synonyms and joined words (PostgreSQL), cart-to-WhatsApp ordering and a full admin panel for listings, catalog and brands. Mobile Lighthouse 90+ with Next.js 16 caching, indexed on Google with JSON-LD and a sitemap, secured with Supabase RLS.",
+        tags: ["Next.js 16", "Supabase", "PostgreSQL", "TypeScript", "Tailwind", "SEO"],
+        status: "live",
+        live: "https://www.orkamotor.com",
+        accent: "#e81b25",
+        emoji: "🏍️",
+        logo: "/logos/orka.png",
       },
       {
         slug: "kolayfresh",
